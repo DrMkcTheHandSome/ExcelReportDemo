@@ -63,9 +63,9 @@ namespace ExcelReportDemo.Service
 
                 template.SaveAs(outputFilePath);
                 byte[] packetFileBytes = File.ReadAllBytes(outputFilePath);
-                if (File.Exists(outputFilePath))
+                if (Directory.Exists(cdnDirectory.FullName)) // Delete Generated Test Files
                 {
-                    File.Delete(outputFilePath);
+                    Directory.Delete(cdnDirectory.FullName,true);
                 }
                 return packetFileBytes;
             });
